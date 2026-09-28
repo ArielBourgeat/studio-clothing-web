@@ -1,0 +1,300 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-6;
+  }
+
+  .contrast-btn {
+    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  }
+
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-semibold;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-semibold;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-xl-regular {
+    @apply text-2xl leading-[36px] font-normal;
+  }
+
+  .text-xl-semi {
+    @apply text-2xl leading-[36px] font-semibold;
+  }
+
+  .text-2xl-regular {
+    @apply text-[30px] leading-[48px] font-normal;
+  }
+
+  .text-2xl-semi {
+    @apply text-[30px] leading-[48px] font-semibold;
+  }
+
+  .text-3xl-regular {
+    @apply text-[32px] leading-[44px] font-normal;
+  }
+
+  .text-3xl-semi {
+    @apply text-[32px] leading-[44px] font-semibold;
+  }
+}
+
+.brand-hero {
+  --hero-image-opacity: 0.04;
+  --hero-image-scale: 1.06;
+  --hero-brand-opacity: 0;
+  --hero-brand-y: 32px;
+  --hero-brand-tracking: 0.38em;
+  --hero-hint-opacity: 0.55;
+  --hero-veil-opacity: 0.5;
+}
+
+.brand-hero-image {
+  opacity: var(--hero-image-opacity);
+  transform: scale(var(--hero-image-scale));
+  will-change: opacity, transform;
+}
+
+.brand-hero-title {
+  opacity: var(--hero-brand-opacity);
+  transform: translate3d(0, var(--hero-brand-y), 0);
+  letter-spacing: var(--hero-brand-tracking);
+  will-change: opacity, transform, letter-spacing;
+}
+
+.brand-hero-hint {
+  opacity: var(--hero-hint-opacity);
+}
+
+.brand-product-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.brand-product-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.brand-product-scrollbar {
+  position: relative;
+  height: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  touch-action: none;
+}
+
+.brand-product-scrollbar-thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  border-radius: 999px;
+  background: #8a6a68;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.brand-philosophy-point {
+  opacity: var(--point-opacity, 0);
+  transform: translate3d(0, var(--point-y, 36px), 0);
+  will-change: opacity, transform;
+}
+
+.brand-season {
+  --season-image-opacity: 0.12;
+  --season-image-scale: 1.1;
+  --season-image-y: 40px;
+}
+
+.brand-season-image {
+  opacity: var(--season-image-opacity);
+  transform: translate3d(0, var(--season-image-y), 0) scale(var(--season-image-scale));
+  will-change: opacity, transform;
+}
+
+.brand-kinetic-letter {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.brand-season-cta {
+  opacity: 0;
+}
+
+.brand-early-access {
+  background: transparent;
+  color: #fff;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.brand-early-access:hover,
+.brand-early-access:focus-visible {
+  background: #fff;
+  color: black;
+}
+
+.brand-fisheye-sheet {
+  will-change: transform;
+}
+
+.brand-fisheye-grid {
+  overflow: visible;
+}
+
+.brand-fisheye-cell {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.brand-menu-glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.brand-menu-link {
+  text-shadow: -0.5px -0.5px 0 #232323, 0.5px -0.5px 0 #232323, -0.5px 0.5px 0 #232323, 0.5px 0.5px 0 #232323;
+  display: inline-block;
+  font-family: var(--font-sans), Inter, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transform: scale(1);
+  transform-origin: left center;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.35s ease,
+    color 1s ease;
+}
+
+.brand-menu-link:hover,
+.brand-menu-link:focus-visible {
+  font-family: var(--font-running), "Barlow Condensed", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  transform: scale(1.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-menu-link {
+    transition: none;
+  }
+
+  .brand-menu-link:hover,
+  .brand-menu-link:focus-visible {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-hero {
+    --hero-image-opacity: 1;
+    --hero-image-scale: 1;
+    --hero-brand-opacity: 1;
+    --hero-brand-y: 0px;
+    --hero-brand-tracking: 0.08em;
+    --hero-hint-opacity: 0;
+    --hero-veil-opacity: 0.12;
+  }
+
+  .brand-hero-pin {
+    height: calc(100vh - 4rem) !important;
+  }
+
+  .brand-philosophy-point,
+  .brand-kinetic-letter,
+  .brand-season-cta {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .brand-season {
+    --season-image-opacity: 1;
+    --season-image-scale: 1;
+    --season-image-y: 0px;
+  }
+}
